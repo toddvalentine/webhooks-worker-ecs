@@ -1,0 +1,14 @@
+version: '3'
+services:
+  worker:
+    build:
+      context: '.'
+      dockerfile: 'Dockerfile'
+    ports:
+      - '8080:80' 
+    environment:
+      AWS_PROFILE: "vtypeio"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      QUEUE_NAME: "staging-webhooks-sqs-queue"
+      QUEUE_OWNER_ID: 776688544373
